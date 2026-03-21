@@ -3,7 +3,7 @@ Rq's es un sistema web de gestión y control de repuestos industriales, desarrol
 
 Stack tecnológico
 
-Frontend: HTML + CSS + Vanilla JS (con posible migración a React en el futuro)
+Frontend: HTML + CSS + React + vite
 Backend: Node.js + Express
 Base de datos: PostgreSQL
 Infraestructura: Docker (dev y prod) + WSL2 + VSCode
@@ -27,14 +27,21 @@ Entre el Controller y el Repository existe una capa de servicios donde viven las
 
 Estructura de carpetas del backend
 backend/src/
-├── routes/          ← define las URLs de la API
-├── controllers/     ← recibe peticiones y coordina respuestas
-├── services/        ← reglas de negocio de Rq's
-├── repositories/    ← todo el SQL vive aquí
-├── models/          ← define cómo es cada entidad (Repuesto, Requisición, etc.)
+features/
+└── repuestos/
+    ├── repuesto.repository.js  ← habla con la BD
+    ├── repuesto.service.js     ← lógica de negocio
+    ├── repuesto.controller.js  ← maneja HTTP
+    └── repuesto.routes.js      ← mapea URLs
+└── requisiciones/
+    ├── requisicion.repository.js  ← habla con la BD
+    ├── requisicion.service.js     ← lógica de negocio
+    ├── requisicion.controller.js  ← maneja HTTP
+    └── requisicion.routes.js      ← mapea URLs
 ├── middlewares/     ← manejo centralizado de errores y validaciones
 ├── config/          ← conexión a PostgreSQL y variables de entorno
 └── index.js         ← punto de entrada del servidor
+└── bd               ← Conexión con PostgresSQL
 
 Reglas de negocio principales definidas
 
