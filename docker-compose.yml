@@ -21,3 +21,13 @@ services:
     depends_on: 
       - postgres
       #depends_on dice que hasta que postgres no este listo, backend no se iniciará
+
+  frontend:
+    build: 
+      context: .
+      dockerfile: docker/dockerfile.frontend
+    ports:
+      -p "8080:80"
+    depends_on:
+      - backend
+    

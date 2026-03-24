@@ -1,0 +1,11 @@
+FROM node:24-alpine AS builder
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . ./
+RUN npm run build
+
+FROM nginx:alpine
+
+#PARAMETROS: 1. Copia el primer stage del contenedor. 2. Copia el directorio build del primer stage a nginx. 3. ruta destino, dentro del contenedor nginx. 
+COPY --from=builder /app/dist /usr/share/nginx/html 
