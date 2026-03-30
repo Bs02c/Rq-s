@@ -1,0 +1,23 @@
+{
+  "name": "rqsback",
+  "version": "1.0.0",
+  "description": "backend for Rqs",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bs02c/Rq-s.git"
+  },
+  "author": "Brandon Cifuentes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Bs02c/Rq-s/issues"
+  },
+  "homepage": "https://github.com/Bs02c/Rq-s#readme",
+  "dependencies": {
+    "pg": "^8.20.0"
+  }
+}

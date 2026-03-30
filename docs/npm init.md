@@ -1,0 +1,2 @@
+Este comando se ejecuta en la maquina local porque allí es donde se va a crear el archivo package.json el cual copiará docker en la imagen
+En package.json están los datos como nombre, versión (Esto maneja la convención 0.0.0 que es incremental "major.minor.patch", major incrementa cuando se detecta algo que no es compatible con las dependencias, minor incrementa cuando algo si es compatible con las dependencias y patch incrementa cuando se corrigen errores), descripción del proyecto(metadatos), de igual forma también contiene la lista de dependencias.
