@@ -28,6 +28,11 @@ services:
       postgres:
         condition: service_healthy
       #depends_on dice que hasta que postgres no este listo, backend no se iniciará
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+
     healthcheck:
       test: ["CMD-SHELL", "curl -f http://localhost:3000/health || exit 1"]
       interval: 5s
