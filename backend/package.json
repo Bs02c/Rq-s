@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Bs02c/Rq-s#readme",
   "dependencies": {
+    "express": "^5.2.1",
     "pg": "^8.20.0"
   }
 }
