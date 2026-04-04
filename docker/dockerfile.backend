@@ -1,5 +1,7 @@
 #  Usa la imagen ofical de Node.js version 24 alpine linux
 FROM node:24-alpine
+#Instala curl porque alpine no lo tiene, esto para el comando del healthcheck del back
+RUN apk --no-cache add curl
 # Establece el directorio de trabajo dentro del contenedor
 WORKDIR /app
 # Copia el archivo package.json y package-lock.json al directorio de trabajo
