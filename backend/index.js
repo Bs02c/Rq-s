@@ -3,7 +3,8 @@ import express from 'express'
 import client from './src/database/connection.js'
 import router from './src/products/product.routes.js'
 
-const app = express() 
+const app = express()
+app.use(express.json());
 
 await client.connect() 
 console.log('Conexión exitosa a PostgreSQL')
@@ -18,6 +19,7 @@ app.get('/health', (req, res) => {
 /**Recibe los productos desde 
  * product.controller.js */
 app.use('/products', router);
+
 
 
 

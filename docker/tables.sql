@@ -4,14 +4,14 @@ CREATE TABLE product (
     saldo INT NOT NULL,
     costo  INT NOT NULL,
     proveedor VARCHAR(100),
-    fecha_ingreso date NOT NULL,
+    fecha_ingreso date DEFAULT CURRENT_DATE NOT NULL,
     ubicacion VARCHAR(100),
     stock_minimo INT
 );
 
 CREATE TABLE requisiciones(
     consecutivo SERIAL PRIMARY KEY,
-    fecha_solicitud date NOT NULL,
+    fecha_solicitud date DEFAULT CURRENT_DATE NOT NULL,
     solicitante VARCHAR(100) NOT NULL,
     repartidor VARCHAR(100) NOT NULL,
     destino VARCHAR(100) NOT NULL,
