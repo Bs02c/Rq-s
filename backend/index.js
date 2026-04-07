@@ -15,7 +15,7 @@ app.get('/health', (req, res) => {
   res.send('Health ok')
 });
 
-/**Resive los productos desde 
+/**Recibe los productos desde 
  * product.controller.js */
 app.use('/products', router);
 

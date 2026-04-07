@@ -15,12 +15,15 @@ services:
       timeout: 5s
       retries: 3
       start_period: 40s
+    volumes:
+      - ./docker/tables.sql:/docker-entrypoint-initdb.d/tables.sql
+      - postgres_data:/var/lib/postgresql/data
 
   backend: 
     build: 
       context: .
       dockerfile: docker/dockerfile.backend
-      # "Contexto" es la ruta donde se encuentra el dockerfile y "dockerfile: ..." es la ruta donde está el dockerfile.backend.
+      # "Context" es la ruta donde se encuentra el dockerfile y "dockerfile: ..." es la ruta donde está el dockerfile.backend
     ports:
       - "3000:3000" 
       # 3000 es la convención mas no es obligatorio, se puede cambiar por cualquier otro puerto
@@ -48,5 +51,7 @@ services:
     depends_on:
       backend:
         condition: service_healthy
-  
+
+volumes:
+  postgres_data:
     

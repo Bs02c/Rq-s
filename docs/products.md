@@ -1,0 +1,1 @@
+En esta carpeta se va a manejar la comunicación con BD, dividiendo responsabilidades en repository, service y controller, en routes irán las rutas
