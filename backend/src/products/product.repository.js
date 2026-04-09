@@ -21,8 +21,19 @@ async function insertProductRepos(codigo, nombre, saldo, costo, proveedor, ubica
 }; 
 
 //Actualizar un repuesto (PUT: Actualiza todo. PATCH: Actualiza por columnas)
-async function patchProductRepos() {
-    
+async function patchProductRepository(codigo, datos) {
+    let entries = Object.entries(datos);
+    let entriesKey = entries.map(([key, value], index) => {
+        return `${key} = $${index + 1} ` //Esta línea retorna key con un indice para cada key ejemplo: ('key = $1, key2 = $2')
+    });
+    let setQuery = entriesKey.join(', ');
+    let entriesValue = entries.map(([key, value]) => {
+        return value; 
+    });
+    const resultado = await client.query(`UPDATE product 
+        SET ${setQuery} 
+        WHERE codigo = $${entriesValue.length + 1}`, [...entriesValue, codigo]);
+    return resultado.rows
 }
 
-export {getAllProductsFromDB, insertProductRepos, putProductRepos};
+export {getAllProductsFromDB, insertProductRepos, patchProductRepository};

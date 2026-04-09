@@ -1,4 +1,4 @@
-import {getAllProductsFromDB, insertProductRepos} from "./product.repository.js";
+import {getAllProductsFromDB, insertProductRepos, patchProductRepository} from "./product.repository.js";
 
 async function getAllProductsFromService(){
         const result = await getAllProductsFromDB();
@@ -17,4 +17,10 @@ async function insertProductServ(codigo, nombre, saldo, costo, proveedor, ubicac
     return resultado
 };
 
- export {getAllProductsFromService, insertProductServ};
+async function patchProductService(codigo, datos) {
+    const resultado = await patchProductRepository(
+        codigo, datos);
+    return resultado
+};
+
+ export {getAllProductsFromService, insertProductServ, patchProductService};

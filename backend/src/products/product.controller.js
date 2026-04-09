@@ -1,4 +1,4 @@
-import {getAllProductsFromService, insertProductServ} from "./product.service.js";
+import {getAllProductsFromService, insertProductServ, patchProductService} from "./product.service.js";
 
 async function getAllProductsFromCtrl(req, res) {
     const result = await getAllProductsFromService();
@@ -27,4 +27,11 @@ async function insertProductCtrl(req, res) {
     res.json(resultado);
 }
 
- export {getAllProductsFromCtrl, insertProductCtrl};
+async function patchProCtrl(req, res) {
+    const {codigo} = req.params
+    const datos = req.body;
+    const resultado = await patchProductService(codigo, datos);
+    res.json(resultado);
+}; 
+
+ export {getAllProductsFromCtrl, insertProductCtrl, patchProCtrl};

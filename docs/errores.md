@@ -1,0 +1,4 @@
+1.09/04/2026: 
+    -invalid input syntax for type date: "" : La columna fecha_ingreso llegaba vacía, entonces agregue DEFAULT CURRENT_DATE en la tabla de product y la eliminé del campo del INSERT 
+    -null value in column "fecha_ingreso" violates not-null constraint : El campo seguía en los placeholders y en el array de valores del repository aunque ya no venía en el body. Solución: quitarlo del SQL, los placeholders y el array.
+    -Cannot convert undefined or null to object: Object.entries(datos) recibió undefined porque el body de Postman estaba vacío. Solución: agregar el JSON en el body antes de enviar.
