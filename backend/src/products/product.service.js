@@ -1,8 +1,8 @@
-import {getAllProductsFromDB, insertProductRepos, patchProductRepository} from "./product.repository.js";
+import {getAllProductsFromDB, insertProductRepos, patchProductRepository, deleteProdRepo} from "./product.repository.js";
 
 async function getAllProductsFromService(){
         const result = await getAllProductsFromDB();
-        return result
+        return result;
     };
 
 async function insertProductServ(codigo, nombre, saldo, costo, proveedor, ubicacion, stock_minimo){//Parametros recibidos
@@ -14,7 +14,7 @@ async function insertProductServ(codigo, nombre, saldo, costo, proveedor, ubicac
         proveedor, 
         ubicacion, 
         stock_minimo);
-    return resultado
+    return resultado;
 };
 
 async function patchProductService(codigo, datos) {
@@ -23,4 +23,9 @@ async function patchProductService(codigo, datos) {
     return resultado
 };
 
- export {getAllProductsFromService, insertProductServ, patchProductService};
+async function deleteProdServ(codigo) {
+    const resultado = await deleteProdRepo(codigo);
+    return resultado;
+} 
+
+ export {getAllProductsFromService, insertProductServ, patchProductService, deleteProdServ};

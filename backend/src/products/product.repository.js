@@ -36,4 +36,14 @@ async function patchProductRepository(codigo, datos) {
     return resultado.rows
 }
 
-export {getAllProductsFromDB, insertProductRepos, patchProductRepository};
+async function deleteProdRepo(codigo) {
+    const resultado = await client.query(`DELETE FROM product WHERE codigo = $1 RETURNING *`, [codigo]);
+    if (resultado.rowCount > 0) {
+        console.log('Se eliminó correctamente');
+    } else {
+        console.log('No existía el registro');
+    }; 
+    return resultado.rows;
+};
+
+export {getAllProductsFromDB, insertProductRepos, patchProductRepository, deleteProdRepo};
