@@ -6,4 +6,4 @@ const client = new Client({
     password: process.env.POSTGRES_PASSWORD,
     port: 5432,
 })
-export default client  
+export default client   

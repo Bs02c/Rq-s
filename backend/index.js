@@ -1,7 +1,8 @@
 //Importing the database connection
-import express from 'express'
-import client from './src/database/connection.js'
-import router from './src/products/product.routes.js'
+import express from 'express';
+import client from './src/database/connection.js';
+import routerProduct from './src/products/product.routes.js';
+import routerRequisicion from './src/requisiciones/requisicion.routes.js';
 
 const app = express()
 app.use(express.json());
@@ -18,7 +19,8 @@ app.get('/health', (req, res) => {
 
 /**Recibe los productos desde 
  * product.controller.js */
-app.use('/products', router);
+app.use('/products', routerProduct);
+app.use('/requisicion', routerRequisicion);
 
 
 

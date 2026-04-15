@@ -28,4 +28,4 @@ async function deleteProdServ(codigo) {
     return resultado;
 } 
 
- export {getAllProductsFromService, insertProductServ, patchProductService, deleteProdServ};
+ export {getAllProductsFromService, insertProductServ, patchProductService, deleteProdServ}; 

@@ -39,5 +39,5 @@ async function deleteProdCtrl(req, res) {
     const resultado = await deleteProdServ(codigo); 
     res.json(resultado)
 }
-
+ 
  export {getAllProductsFromCtrl, insertProductCtrl, patchProCtrl, deleteProdCtrl};

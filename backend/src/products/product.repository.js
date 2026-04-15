@@ -43,7 +43,7 @@ async function deleteProdRepo(codigo) {
     } else {
         console.log('No existía el registro');
     }; 
-    return resultado.rows;
+    return resultado.rows; 
 };
 
-export {getAllProductsFromDB, insertProductRepos, patchProductRepository, deleteProdRepo};
+export {getAllProductsFromDB, insertProductRepos, patchProductRepository, deleteProdRepo};  
