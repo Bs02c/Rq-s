@@ -1,4 +1,4 @@
-import {getAllRqServ, getSpecificRqServ, postRqServ} from "./requisiciones.service.js";
+import {getAllRqServ, getSpecificRqServ, postRqServ} from "./requisicion.service.js";
 
 async function getAllRqCtrl(req, res) {
     const result = await getAllRqServ();
@@ -29,4 +29,4 @@ async function postRqCtrl(req, res) {
         res.json(result)
 }
 
-export {getAllRqCtrl, getSpecificRqCtrl, postRqCtrl};
+export {getAllRqCtrl, getSpecificRqCtrl, postRqCtrl}; 

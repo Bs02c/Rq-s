@@ -19,4 +19,4 @@ CREATE TABLE requisiciones(
     FOREIGN KEY (codigo_solicitado) REFERENCES product(codigo),
     cantidad INT NOT NULL,
     observaciones VARCHAR(255)
-);
+); 

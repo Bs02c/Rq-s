@@ -1,4 +1,4 @@
-import {getAllRqRepo, getSpecificRqRepo, postRqRepo} from "./requisiciones.repository.js";
+import {getAllRqRepo, getSpecificRqRepo, postRqRepo} from "./requisicion.repository.js";
 
 async function getAllRqServ() {
         const result = await getAllRqRepo();
@@ -20,4 +20,4 @@ async function postRqServ(solicitante, repartidor, destino, codigo_solicitado, c
         observaciones);   
     return result;    
 }; 
-export {getAllRqServ, getSpecificRqServ, postRqServ};
+export {getAllRqServ, getSpecificRqServ, postRqServ}; 

@@ -17,8 +17,8 @@ async function postRqRepo(solicitante, repartidor, destino, codigo_solicitado, c
         destino, 
         codigo_solicitado, 
         cantidad, 
-        observaciones) VALUES ($1, $2, $3, $4, $5, $6)`, 
-        [consecutivo, solicitante, repartidor, destino, codigo_solicitado, cantidad, observaciones]);
+        observaciones) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *`, 
+        [solicitante, repartidor, destino, codigo_solicitado, cantidad, observaciones]);
     return insert.rows;        
 };
 
