@@ -15,6 +15,14 @@ async function getSpecificRq(consecutivo) {
   return response.json()
 };
 
-async function postRq(requisicionData) {
-    
-}
+async function createRq(requisicionData) {
+  const response = await fetch(BASE_URL, {
+    method: 'POST',
+    headers: { 'Content-Type' : 'application/json' },
+    body: JSON.stringify(requisicionData)
+  })
+  if (!response.ok) throw new Error('Error al crear la requisición')
+  return response.json()
+};
+
+export {getAllRq, getSpecificRq, createRq};
