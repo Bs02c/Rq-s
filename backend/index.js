@@ -1,10 +1,14 @@
 //Importing the database connection
 import express from 'express';
+import helmet from 'helmet';
 import client from './src/database/connection.js';
 import routerProduct from './src/products/product.routes.js';
 import routerRequisicion from './src/requisiciones/requisicion.routes.js';
+import cors from 'cors'
 
 const app = express()
+app.use(helmet());
+app.use(cors())
 app.use(express.json());
 
 await client.connect() 

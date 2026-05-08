@@ -18,7 +18,9 @@
   },
   "homepage": "https://github.com/Bs02c/Rq-s#readme",
   "dependencies": {
+    "cors": "^2.8.6",
     "express": "^5.2.1",
+    "helmet": "^8.1.0",
     "pg": "^8.20.0"
   }
 }
