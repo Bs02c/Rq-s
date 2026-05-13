@@ -1,1 +1,0 @@
-Este archivo importa client que es el que contiene las credenciales para el acceso a la base de datos

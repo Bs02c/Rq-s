@@ -1,6 +1,6 @@
 import client from "../database/connection.js";
 
-//Devuelve [] de product
+//Devuelve [] de product 
 async function getAllProductsFromDB (){
     const result = await client.query("SELECT * FROM  product;");
     return result.rows;
@@ -46,4 +46,20 @@ async function deleteProdRepo(codigo) {
     return resultado.rows; 
 };
 
-export {getAllProductsFromDB, insertProductRepos, patchProductRepository, deleteProdRepo};  
+async function getProductByCodeRepo(codigo) {
+    const resultado = await client.query(
+        'SELECT * FROM product WHERE codigo = $1',
+        [codigo]
+    );
+    return resultado.rows[0] ?? null;
+}
+
+async function searchProductsRepo(q) {
+    const resultado = await client.query(
+        `SELECT * FROM product WHERE codigo ILIKE $1 OR nombre ILIKE $1`,
+        [`%${q}%`]
+    );
+    return resultado.rows;
+}
+
+export {getAllProductsFromDB, insertProductRepos, patchProductRepository, deleteProdRepo, getProductByCodeRepo, searchProductsRepo};

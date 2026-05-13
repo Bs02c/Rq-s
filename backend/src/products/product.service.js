@@ -1,4 +1,4 @@
-import {getAllProductsFromDB, insertProductRepos, patchProductRepository, deleteProdRepo} from "./product.repository.js";
+import {getAllProductsFromDB, insertProductRepos, patchProductRepository, deleteProdRepo, getProductByCodeRepo, searchProductsRepo} from "./product.repository.js";
 
 async function getAllProductsFromService(){
         const result = await getAllProductsFromDB();
@@ -28,4 +28,12 @@ async function deleteProdServ(codigo) {
     return resultado;
 } 
 
- export {getAllProductsFromService, insertProductServ, patchProductService, deleteProdServ}; 
+async function getProductByCodeServ(codigo) {
+    return await getProductByCodeRepo(codigo);
+}
+
+async function searchProductsServ(q) {
+    return await searchProductsRepo(q);
+}
+
+export {getAllProductsFromService, insertProductServ, patchProductService, deleteProdServ, getProductByCodeServ, searchProductsServ};

@@ -8,7 +8,7 @@ import cors from 'cors'
 
 const app = express()
 app.use(helmet());
-app.use(cors())
+app.use(cors({ origin: process.env.CORS_ORIGIN || 'http://localhost:8080' }))
 app.use(express.json());
 
 await client.connect() 
@@ -28,6 +28,11 @@ app.use('/requisicion', routerRequisicion);
 
 
 
+
+// eslint-disable-next-line no-unused-vars
+app.use((err, req, res, next) => {
+  res.status(err.status || 500).json({ error: err.message || 'Internal server error' });
+});
 
 app.listen(3000)
 

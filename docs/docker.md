@@ -1,9 +1,8 @@
-imagen
+## imagen
 
-Entiendo que una imagen de docker es como una plantilla para correr mi aplicación, esto crea o simula un entorno donde está lo necesario para que pueda correrse allí.
+>Entiendo que una imagen de docker es como una plantilla para correr mi aplicación, esto crea o simula un entorno donde está lo necesario para que pueda correrse allí.
 
-
-dockerfile.frontend/.backend
+## dockerfile.frontend/.backend
 
 Aquí cree la imagen que voy a usar para el front
 -FROM node:24-alpine AS builder: Aquí indico que imagen quiero como base, diciendo versión de node y distribución de linux que es muy ligera y builder para esta etapa de construcción con multi-stage build.

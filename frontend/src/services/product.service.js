@@ -36,5 +36,11 @@ async function updateProduct(codigo, data) {
   return response.json()
 };
 
-export { getAllProducts, createProducts, getProductByCode, updateProduct }; 
+async function searchProducts(q) {
+    const response = await fetch(`${BASE_URL}/search?q=${encodeURIComponent(q)}`);
+    if (!response.ok) throw new Error('Error al buscar productos');
+    return response.json();
+}
+
+export { getAllProducts, createProducts, getProductByCode, updateProduct, searchProducts };
 

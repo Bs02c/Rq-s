@@ -9,3 +9,4 @@ FROM nginx:alpine
 
 #PARAMETROS: 1. Copia el primer stage del contenedor. 2. Copia el directorio build del primer stage a nginx. 3. ruta destino, dentro del contenedor nginx. 
 COPY --from=builder /app/dist /usr/share/nginx/html 
+COPY frontend/nginx.conf /etc/nginx/conf.d/default.conf
