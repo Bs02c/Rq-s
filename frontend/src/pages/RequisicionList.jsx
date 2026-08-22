@@ -10,6 +10,8 @@ function RequisicionList(){
         }
         cargarDatos()
     },[]);
+    const raw = "2024-11-03T00:00:00.000Z"
+    const fecha = new Date(raw)
     return(
         <table>
             <thead>
@@ -24,15 +26,20 @@ function RequisicionList(){
                 </tr>
             </thead>
             <tbody>
-                {requisiciones.map(p => (
-                    <tr key={p.consecutivo}>
-                        <td>{p.consecutivo}</td>
-                        <td>{p.fecha_solicitud}</td>
-                        <td>{p.solicitante}</td>
-                        <td>{p.destino}</td>
-                        <td>{p.codigo_solicitado}</td>
-                        <td>{p.cantidad}</td>
-                        <td>{p.observaciones}</td>
+                {requisiciones.map(r => (
+                    <tr key={r.consecutivo}>
+                        <td>{r.consecutivo}</td>
+                        <td>{r.fecha_solicitud.toLocaleDateString("es-CO", {
+                            timeZone: "UTC",
+                            day: "2-digit",
+                            month: "2-digit",
+                            year: "numeric"
+                        })}</td>
+                        <td>{r.solicitante}</td>
+                        <td>{r.destino}</td>
+                        <td>{r.codigo_solicitado}</td>
+                        <td>{r.cantidad}</td>
+                        <td>{r.observaciones}</td>
                     </tr>
                 ))}
             </tbody>
